@@ -1,0 +1,42 @@
+schema: spec-driven
+
+context: |
+  Project: AI Board — Multi-board advisory panel simulator powered by synthetic AI experts.
+  Each board is a panel of AI personas that evaluate questions in parallel and produce structured verdicts.
+
+  Tech stack:
+    - Frontend: Next.js 15 + TypeScript, Tailwind CSS, shadcn/ui
+    - Backend: FastAPI + Python 3.12+, LiteLLM (LLM abstraction), TF-IDF RAG
+    - Deploy: Docker + docker-compose, own server
+    - Tests: Playwright (E2E), pytest (Python unit)
+
+  Architecture:
+    - Multi-board: each board is a folder in boards/ with board.yaml + agent .md files
+    - No database: everything in-memory, no persistence between restarts
+    - SSE streaming: real-time agent responses via Server-Sent Events
+    - Agent interface: BaseAgent abstraction, designed for future LangGraph migration
+
+  Design system:
+    - Fonts: Eiko (titles/display) + Inter (UI/body) — Propelland brand
+    - Colors: Propelland palette (Blue #0042FF, Black #130E1E, White #FDFDFD, Spa Mint #4EF0B6)
+    - Board primary color: configurable per board via theme.primary in board.yaml
+    - Verdict colors: fixed semantic semaphore (green/amber/orange/red)
+
+  Code conventions:
+    - Code and comments in English
+    - General documentation in Spanish
+    - SOLID principles, no premature abstractions
+    - TypeScript strict mode, no any
+    - Python type hints mandatory, Black + Ruff
+
+  Language:
+    - UI in English
+    - Agents respond in the same language as the user's question (auto-detect)
+
+rules:
+  tasks:
+    - Break tasks into chunks of max 2-3 hours
+    - Each task must reference the relevant spec file
+  proposal:
+    - Always include affected specs
+    - Always include a Non-goals section
